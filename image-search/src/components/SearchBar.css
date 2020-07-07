@@ -1,0 +1,18 @@
+.flexContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    /* border: 1px solid black; */
+}
+
+.inputStyle{
+    font-size: 1.4em;
+    padding: 10px 10px 10px 40px;
+    display: inline-block;
+    width: 30%;
+    box-shadow: 0 2px 30px 0 rgba(0, 0, 0, 0.08);
+    color: #6084a4;
+    border: #fff;
+    border-radius: 10px;
+}
