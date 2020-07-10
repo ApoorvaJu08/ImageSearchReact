@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-    /* border: 1px solid black; */
+    margin-bottom: 80px;
 }
 
 .inputStyle{
@@ -15,4 +15,8 @@
     color: #6084a4;
     border: #fff;
     border-radius: 10px;
+}
+
+.inputStyle:focus {
+    outline: none;
 }

@@ -1,8 +1,6 @@
 import React from 'react';
 import './SearchBar.css';
-import IconButton from "@material-ui/core/IconButton";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import SearchIcon from "@material-ui/icons/Search";
+// import { MDBIcon } from "mdbreact";
 
 class SearchBar extends React.Component {
     state = { val: '' }
@@ -20,32 +18,14 @@ class SearchBar extends React.Component {
         return (
             <div>
                 <form onSubmit={this.onFormSubmit}  className="flexContainer">
-                    {/* <label><h2>Image Search: </h2></label> */}
                     <input
                         className="inputStyle"
                         type="text"
                         value={this.state.val}
                         onChange={this.onInputChange}
-                        InputProps={{
-                            endAdornment: (
-                              <InputAdornment position="start">
-                                <SearchIcon />
-                              </InputAdornment>
-                             )
-                            }}
+                        placeholder="Search..."
                     />
-                    {/* <TextField
-                        label="With normal TextField"
-                        InputProps={{
-                            endAdornment: (
-                            <InputAdornment>
-                                <IconButton>
-                                <SearchIcon />
-                                </IconButton>
-                            </InputAdornment>
-                            )
-                        }}
-                        /> */}
+                    {/* <MDBIcon icon="search" /> */}
                 </form>
             </div>
         )

@@ -1,0 +1,80 @@
+.heading {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.content {
+    margin-top: 40px;
+    padding: 80px;
+}
+
+.icon-div {
+    display: inline-block;
+    width: 33.33%;
+    text-align: center;
+}
+
+.img-div {
+    height: 115px;
+    width: 115px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+    margin: 0 auto;
+    position: relative;
+}
+
+.number-circle {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    color: #ffffff;
+    position: absolute;
+    left: -5px;
+    top: 14px;
+}
+
+.number {
+    text-align: center;
+    line-height: 30px;
+}
+
+.number-circle1 {
+    background-color: #fa485b;
+}
+
+.number-circle2 {
+    background-color: #ff7a00;
+}
+
+.number-circle3 {
+    background-color: #1fcfcc;
+}
+
+.icon {
+    margin: 30px auto;
+    display: block;
+}
+
+.img-div2:before {
+    content: url("/assets/images/arrow1.png");
+    position: absolute;
+    left: -274px;
+    top: -40px;
+    /* width: 100px; */
+}
+
+.img-div2:after {
+    content: url("/assets/images/arrow2.png");
+    right: -236px;
+    top: 70px;
+    position: absolute;
+}
+
+.heading-beneath-icon {
+    text-align: center;
+    padding-top: 20px;
+    color: #ffffff;
+    font-size: 18px;
+    padding-bottom: 20px;
+}
