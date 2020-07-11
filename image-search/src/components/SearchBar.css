@@ -7,7 +7,7 @@
 }
 
 .inputStyle{
-    font-size: 1.4em;
+    font-size: 1.3em;
     padding: 10px 10px 10px 40px;
     display: inline-block;
     width: 30%;
@@ -20,3 +20,12 @@
 .inputStyle:focus {
     outline: none;
 }
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+      .flexContainer {
+          margin-bottom: 50px;
+      }
+  }

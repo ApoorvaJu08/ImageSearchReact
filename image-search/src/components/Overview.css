@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
 .heading {
     font-size: 30px;
     text-align: center;
     font-weight: 500;
+    font-family: 'Raleway';
 }
 
 .content {
@@ -10,8 +14,8 @@
 }
 
 .icon-div {
-    display: inline-block;
-    width: 33.33%;
+    /* display: inline-block; */
+    /* width: 33.33%; */
     text-align: center;
 }
 
@@ -77,4 +81,82 @@
     color: #ffffff;
     font-size: 18px;
     padding-bottom: 20px;
+    font-family: 'Open Sans';
+    font-weight: 400;
 }
+
+@media screen 
+  and (min-device-width: 1200px) 
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    .icon-div {
+        display: inline-block;
+        width: 33.33%;
+    }
+}
+
+/* tablets */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+      .content {
+          padding: 10px;
+      }
+      .icon {
+          width: 35px;
+          margin: 20px auto;
+      }
+      .img-div {
+          height: 70px;
+          width: 70px;
+      }
+      .heading-beneath-icon {
+          padding-top: 0;
+      }
+      .img-div2:before {
+          display: none;
+      }
+      .img-div2::after {
+          display: none;
+      }
+}
+
+/* mobile devices */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .heading {
+        font-size: 20px;
+        margin-block-start: 0;
+    }
+    .content {
+        padding: 10px;
+    }
+    .icon {
+        width: 35px;
+        margin: 20px auto;
+    }
+    .img-div {
+        height: 70px;
+        width: 70px;
+    }
+    .heading-beneath-icon {
+        padding-top: 0;
+    }
+    .img-div2:before {
+        display: none;
+    }
+    .img-div2::after {
+        display: none;
+    }
+    .number-circle {
+        height: 25px;
+        width: 25px;
+        left: -10px;
+    }
+    .number {
+        line-height: 25px;
+    }
+} 

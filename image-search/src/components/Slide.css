@@ -1,3 +1,6 @@
+section.slideshow {
+    position: relative;
+}
 section.slideshow div.slide-holder{
     display: flex;
     justify-content: space-evenly;
@@ -5,15 +8,16 @@ section.slideshow div.slide-holder{
     flex-direction: row;
 }
 section.slideshow section.current-slide{
-    width: 400px;
-    height: 300px;
-    margin: auto 10px;
+    width: 650px;
+    height: 450px;
+    /* margin: auto 10px; */
+    margin: 0 auto;
 }
-section.slideshow section.previous-slide,
+/* section.slideshow section.previous-slide,
 section.slideshow section.next-slide{
     width: 200px;
     height: 150px;
-}
+} */
 section.slideshow section.slide div.slide-thumbnail{
     width: 100%;
     height: 100%;
@@ -27,16 +31,31 @@ section.slideshow div.slideshow-controller{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 80px 140px 0 140px;
+    /* margin: 80px 140px 0 140px; */
 }
+
+.left-control {
+    position: absolute;
+    top: 45%;
+    left: 15%;
+}
+
+.right-control {
+    position: absolute;
+    top: 45%;
+    right: 15%;
+}
+
 section.slideshow div.slideshow-controller span{
     padding: 10px;
-    width: 100px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
     border: none;
     background: #5e5c5c;
     color: #f5f5f5;
     cursor: pointer;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     text-align: center;
     user-select: none;
 }
@@ -52,6 +71,42 @@ section.slideshow div.slideshow-controller span:active{
 .unsplash-image {
     width: 100%;
     height: 100%;
-    border: 3px solid white;
+    /* border: 3px solid white; */
     border-radius: 5px;
 }
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    section.slideshow section.current-slide {
+        width: 520px;
+        height: 430px;
+    }
+    .left-control {
+        left: 5%;
+    }
+    .right-control {
+        right: 5%;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    section.slideshow section.current-slide {
+        width: 260px;
+        height: 270px;
+    }
+    .left-control {
+        left: 0;
+    }
+    .right-control {
+        right: 0;
+    }
+    section.slideshow div.slideshow-controller span {
+        width: 20px;
+        height: 20px;
+    }
+  }

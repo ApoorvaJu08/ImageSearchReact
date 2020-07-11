@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import LazyLoad from 'react-lazyload';
+import className from 'classnames';
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Slide.css';
 
 const Loading = () => (
@@ -10,6 +14,7 @@ const Loading = () => (
 
 export default function Slideshow({images, interval=3000}){
     let [currImage, setCurrImage] = useState(0);
+    const [animate, setAnimate] = useState(false);
 
     function prev() {
         if(currImage === 0){
@@ -18,6 +23,7 @@ export default function Slideshow({images, interval=3000}){
         else{
             setCurrImage(currImage - 1);
         }
+        setAnimate(animate);
     }
 
     function next() {
@@ -27,13 +33,14 @@ export default function Slideshow({images, interval=3000}){
         else{
             setCurrImage(currImage + 1);
         }
+        setAnimate(!animate);
     }
 
     return (
         <section className="slideshow animate__animated animate__fadeInRight">
             <div className="slide-holder">
                 <LazyLoad key={currImage} placeholder={<Loading />}>
-                    <section className="slide current-slide">
+                    <section className={`slide current-slide ${animate ? 'fadeInTopRight': 'fadeInTopLeft' }`}>
                         <div className="slide-thumbnail">
                             <img src={images[currImage].urls.regular} className="unsplash-image"></img>
                         </div>
@@ -41,8 +48,8 @@ export default function Slideshow({images, interval=3000}){
                 </LazyLoad>
             </div>          
             <div className="slideshow-controller">
-                <span onClick = {prev}>Previous</span>
-                <span onClick = {next}>Next</span>
+                <span onClick = {prev} className="left-control"><FontAwesomeIcon icon={faArrowLeft} /></span>
+                <span onClick = {next} className="right-control"><FontAwesomeIcon icon={faArrowRight} /></span>
             </div>
         </section>
     )
