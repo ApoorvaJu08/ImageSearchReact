@@ -1,4 +1,5 @@
 {
+  "homepage": "http://ApoorvaJu08.github.io/ImageSearchReact",
   "name": "image-search",
   "version": "0.1.0",
   "private": true,
@@ -18,10 +19,13 @@
     "react-bootstrap": "^1.1.1",
     "react-dom": "^16.13.1",
     "react-lazyload": "^3.0.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
