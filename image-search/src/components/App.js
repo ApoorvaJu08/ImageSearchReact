@@ -21,28 +21,19 @@ class App extends React.Component  {
     }
     
     render() {
-        const len = this.state.images.length;
-        let slider;
-        if(len > 0){
-            slider = <Slide
-                interval={3000}
-                images={this.state.images}
-            />;
-        }
-        // else if(len == 0) {
-        //     slider = <NoImgs />;
-        // }
-        else{
-            slider = <Overview />;
-        }
         return (
-            <div className="body-bg">
-                {/* <div className="app-heading"> */}
-                    {/* <span className="heading">Collosal Images</span> */}
-                    <SearchBar userSubmit={this.onSearchSubmit}/>
-                {/* </div> */}
-                {slider}
-            </div>
+            <ul className="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         )
     }
 
