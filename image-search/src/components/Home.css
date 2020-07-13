@@ -1,0 +1,26 @@
+.intro-container {
+    padding: 0 40px;
+    color: #ffffff;
+    margin-top: 60px;
+}
+
+.intro-para {
+    font-size: 28px;
+    padding: 10px 200px 0 0;
+}
+
+.btn:hover .right {
+    color: #ffffff !important;
+}
+
+.btn:focus .right {
+    color: #ffffff !important;
+}
+
+.img-div {
+    text-align: right;
+}
+
+.banner-img {
+    max-width: 590px;
+}

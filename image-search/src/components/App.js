@@ -2,10 +2,36 @@ import React from 'react';
 import axios from 'axios';
 import './style.css';
 import SearchBar from './SearchBar';
-import Slide from './Slide';
-import Overview from './Overview';
-import NoImgs from './NoImgs';
+import BgAnimation from './BgAnimation';
+import NavBar from './Navbar';
+import {BrowserRouter,Route,Switch,useHistory} from 'react-router-dom'
+import SignUp from './Signup';
+import SignIn from './Signin';
+import Profile from './Profile';
+import Home from './Home';
 const API_KEY = process.env.REACT_APP_API_KEY
+
+const Routing = ()=>{
+    return(
+      <Switch>
+        <Route exact path="/" >
+        <Home />
+        </Route>
+        <Route path="/signin">
+          <SignIn />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route exact path="/search">
+          <SearchBar />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
+      </Switch>
+    )
+  }
 
 class App extends React.Component  {
     state = { images: [] };
@@ -21,28 +47,12 @@ class App extends React.Component  {
     }
     
     render() {
-        const len = this.state.images.length;
-        let slider;
-        if(len > 0){
-            slider = <Slide
-                interval={3000}
-                images={this.state.images}
-            />;
-        }
-        // else if(len == 0) {
-        //     slider = <NoImgs />;
-        // }
-        else{
-            slider = <Overview />;
-        }
         return (
-            <div className="body-bg">
-                {/* <div className="app-heading"> */}
-                    {/* <span className="heading">Collosal Images</span> */}
-                    <SearchBar userSubmit={this.onSearchSubmit}/>
-                {/* </div> */}
-                {slider}
-            </div>
+            <BrowserRouter>
+                <BgAnimation />
+                <NavBar />
+                <Routing />
+            </BrowserRouter>
         )
     }
 
