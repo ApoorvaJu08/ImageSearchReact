@@ -23,4 +23,23 @@
 
 .banner-img {
     max-width: 590px;
+    --animation-duration: 20s;
 }
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+      .intro-container {
+          margin-top: 20px;
+          padding: 0 25px;
+      }
+      .intro-para {
+          font-size: 20px;
+          padding: 10px 20px 0 0;
+      }
+      .banner-img {
+          max-width: 280px;
+          margin-top: 50px;
+      }
+  }

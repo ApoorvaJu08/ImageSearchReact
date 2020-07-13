@@ -1,6 +1,12 @@
 import React, {useState} from 'react';
+import LazyLoad from 'react-lazyload';
 import './SearchBar.css';
-// import {GifPlayer} from 'GifPlayer'
+
+const Loading = () => (
+    <div className="post loading">
+        <h5>Loading...</h5>
+    </div>
+)
 
 function SearchBar() {
     const [value, setValue] = useState("")
@@ -31,28 +37,20 @@ function SearchBar() {
                 <input className="search-input" type="text" value={value} 
                 onChange={(e) => setValue(e.target.value)} placeholder="Search..."
                 style={{width: "70%", color: "#4e54c8"}}/>
-                <button className="btn waves-effect waves-light btn-large" onClick={() => fetchImages()}>Search</button>
+                <button className="btn waves-effect waves-light btn-large search-btn" onClick={() => fetchImages()}>Search</button>
             </div>
             <div className="gallery">
-                {   
-                    item.map((item1) => {
-                        if(results.length < 0){
-                            return <> 
-                            {/* <iframe src="https://giphy.com/embed/l46Cy1rHbQ92uuLXa" width="480" 
-                            height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p>
-                                <a href="https://giphy.com/gifs/analytics-pixelmonkeys-tony-bab
-                                el-l46Cy1rHbQ92uuLXa">via GIPHY</a></p>  */}
-                            <img src={process.env.PUBLIC_URL + '/assets/images/search-vs-display-blog-1280x720-removebg.png'} className="banner-img"></img>
-                            
-                            {/* <GifPlayer gif="https://giphy.com/embed/l46Cy1rHbQ92uuLXa" still="https://giphy.com/embed/l46Cy1rHbQ92uuLXa" />     */}
-                            </>
+                {/* {    */}
+                    <LazyLoad placeholder={<Loading />}>
+                        {
+                            item.map((item1) => {
+                                return(
+                                    <img className="item" key={item1.id} src={item1.urls.regular} />
+                                )  
+                            })
                         }
-                        else {
-                            return <img className="item" key={item1.id} src={item1.urls.regular} /> 
-                        }
-                                      
-                    })
-                }
+                    </LazyLoad>
+                {/* } */}
             </div>
             <div className="slide-btns-div">
                 <button className="btn waves-effect waves-light slide-btn" onClick={prev}>

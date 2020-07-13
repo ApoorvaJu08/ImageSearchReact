@@ -46,3 +46,8 @@
     /* font-weight: bold; */
     text-transform: uppercase;
 }
+
+.not-complete {
+    text-align: center;
+    color: #ffffff;
+}
