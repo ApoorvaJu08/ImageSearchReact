@@ -2,8 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import './style.css';
 import SearchBar from './SearchBar';
-import Slide from './Slide';
-import NoImgs from './NoImgs';
 import BgAnimation from './BgAnimation';
 import NavBar from './Navbar';
 import {BrowserRouter,Route,Switch,useHistory} from 'react-router-dom'
@@ -54,20 +52,7 @@ class App extends React.Component  {
                 <BgAnimation />
                 <NavBar />
                 <Routing />
-                {/* <Route path="/signup">
-                    <SignUp />
-                </Route>
-                <Route path="/signin">
-                    <SignIn />
-                </Route>
-                <Route path="/profile">
-                    <Profile />
-                </Route> */}
             </BrowserRouter>
-            // <div>
-            //     <BgAnimation />
-            //     <SearchBar />
-            // </div>
         )
     }
 

@@ -7,9 +7,9 @@ class NavBar extends React.Component {
     render() {
         return (
             <nav>
-                <div class="nav-wrapper">
-                <div class="brand-logo">Collosal Images</div>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <div className="nav-wrapper">
+                <div className="brand-logo">Collosal Images</div>
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
                     <li><Link to="/signin">Sign In</Link></li>
                     <li><Link to="/signup">Sign Up</Link></li>
                     <li><Link to="/profile">Profile</Link></li>

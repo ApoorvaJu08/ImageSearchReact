@@ -12,9 +12,9 @@ class Home extends React.Component {
                             Request for a particular category of images and use the ones seleted by you anytime, anywhere.
                         </p>
                         <Link to="/search">
-                            <button class="btn waves-effect waves-light btn-large" type="submit" name="action">
+                            <button className="btn waves-effect waves-light btn-large" type="submit" name="action">
                                 Start Searching
-                                <i class="material-icons right">send</i>
+                                <i className="material-icons right">send</i>
                             </button>
                         </Link>
                     </div>
