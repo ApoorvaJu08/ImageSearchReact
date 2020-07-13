@@ -9,26 +9,6 @@
     padding: 10px 200px 0 0;
 }
 
-.btn {
-    color: #4e54c8;
-    background-color: #ffffff;
-    font-size: 18px !important;
-    font-weight: bold;
-    border: 1px solid #4e54c8;
-}
-
-.btn:hover {
-    background-color: #4e54c8;
-    border: 1px solid #ffffff;
-    color: #ffffff;
-}
-
-.btn:focus {
-    background-color: #4e54c8;
-    border: 1px solid #ffffff;
-    color: #ffffff;
-}
-
 .btn:hover .right {
     color: #ffffff !important;
 }
