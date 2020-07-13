@@ -36,3 +36,21 @@
 .banner-img {
     max-width: 590px;
 }
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .item {
+        width: 28%;
+    }
+    .search-btn {
+        font-size: 12px !important;
+        height: 35px !important;
+        line-height: 35px !important;
+        padding: 0 8px;
+    }
+    .search-input {
+        margin-right: 10px !important;
+    }
+  }

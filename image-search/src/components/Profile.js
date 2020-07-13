@@ -2,7 +2,9 @@ import React from 'react'
 
 const Profile = () => {
     return(
-        <h4>Profile</h4>
+        <div className="not-complete">
+            <h4>Under Construction</h4>
+        </div>
     )
 }
 
