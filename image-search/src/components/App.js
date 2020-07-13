@@ -3,9 +3,37 @@ import axios from 'axios';
 import './style.css';
 import SearchBar from './SearchBar';
 import Slide from './Slide';
-import Overview from './Overview';
 import NoImgs from './NoImgs';
+import BgAnimation from './BgAnimation';
+import NavBar from './Navbar';
+import {BrowserRouter,Route,Switch,useHistory} from 'react-router-dom'
+import SignUp from './Signup';
+import SignIn from './Signin';
+import Profile from './Profile';
+import Home from './Home';
 const API_KEY = process.env.REACT_APP_API_KEY
+
+const Routing = ()=>{
+    return(
+      <Switch>
+        <Route exact path="/" >
+        <Home />
+        </Route>
+        <Route path="/signin">
+          <SignIn />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route exact path="/search">
+          <SearchBar />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
+        </Route>
+      </Switch>
+    )
+  }
 
 class App extends React.Component  {
     state = { images: [] };
@@ -22,18 +50,24 @@ class App extends React.Component  {
     
     render() {
         return (
-            <ul className="circles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
+            <BrowserRouter>
+                <BgAnimation />
+                <NavBar />
+                <Routing />
+                {/* <Route path="/signup">
+                    <SignUp />
+                </Route>
+                <Route path="/signin">
+                    <SignIn />
+                </Route>
+                <Route path="/profile">
+                    <Profile />
+                </Route> */}
+            </BrowserRouter>
+            // <div>
+            //     <BgAnimation />
+            //     <SearchBar />
+            // </div>
         )
     }
 

@@ -1,0 +1,21 @@
+nav {
+    background-color: transparent;
+    box-shadow: none;
+    padding: 10px 40px;
+}
+
+ul:not(.browser-default)>li {
+    margin-right: 20px;
+}
+
+ul:not(.browser-default)>li:hover {
+    border-bottom: 2px solid #ffffff;
+}
+
+nav ul a {
+    padding: 0;
+}
+
+nav ul a:hover {
+    background-color: transparent;
+}

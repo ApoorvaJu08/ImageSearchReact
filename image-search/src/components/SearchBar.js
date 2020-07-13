@@ -16,18 +16,19 @@ class SearchBar extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.onFormSubmit}  className="flexContainer">
-                    <input
-                        className="inputStyle"
-                        type="text"
-                        value={this.state.val}
-                        onChange={this.onInputChange}
-                        placeholder="Search..."
-                    />
-                    {/* <MDBIcon icon="search" /> */}
-                </form>
-            </div>
+                <div className="div-for-border">
+                    <form onSubmit={this.onFormSubmit}>
+                        <div class="input-field">
+                            <input
+                                className="inputStyle"
+                                type="search"
+                                value={this.state.val}
+                                onChange={this.onInputChange}
+                                placeholder="Search..."
+                            />
+                        </div>
+                    </form>
+                </div>
         )
     }
 }
