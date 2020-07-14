@@ -19,7 +19,7 @@ class Home extends React.Component {
                         </Link>
                     </div>
                     <div className="col s12 img-div">
-                        <img src={process.env.PUBLIC_URL + '/assets/images/search-vs-display-blog-1280x720-removebg.png'} className="banner-img"></img>
+                        <img src={process.env.PUBLIC_URL + '/assets/images/search-vs-display-blog-1280x720-removebg.png'} className="banner-img animate__animated animate__backInDown animate__slow"></img>
                     </div>
                 </div>
             </div>

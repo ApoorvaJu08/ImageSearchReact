@@ -45,7 +45,7 @@ function SearchBar() {
                         {
                             item.map((item1) => {
                                 return(
-                                    <img className="item" key={item1.id} src={item1.urls.regular} />
+                                    <img className="item animate__animated animate__pulse" key={item1.id} src={item1.urls.regular} />
                                 )  
                             })
                         }
