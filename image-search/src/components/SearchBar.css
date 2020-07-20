@@ -82,4 +82,13 @@
     .search-input {
         margin-right: 10px !important;
     }
+    .Search {
+        border: 5px solid white;
+        border-radius: 10px;
+        text-align: center;
+        background-color: #fff;
+        padding: 16px 0px;
+        width: 95%;
+        margin: 80px auto 0 auto;
+    }
   }

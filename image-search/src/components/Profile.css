@@ -16,3 +16,18 @@
     /* height: 24%; */
     margin: 5px;
 }   
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .profile-card {
+        padding: 20px 25px 40px 25px;
+        text-align: center;
+        max-width: 345px;
+        margin: 90px auto;
+    }
+    .item {
+        width: 29%;
+    }
+  }

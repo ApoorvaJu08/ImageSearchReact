@@ -35,7 +35,9 @@
   and (min-device-width: 320px) 
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
-    .item {
-        width: 28%;
+    .itemImage {
+        width: 24%;
+        margin: 2px;
+        height: 15%;
     }
 }

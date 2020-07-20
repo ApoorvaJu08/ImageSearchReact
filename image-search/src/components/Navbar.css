@@ -41,4 +41,7 @@ nav ul a:hover {
           margin-right: 0 !important;
           margin-left: 5px !important;
       }
+      .mobile {
+          margin-top: 50px;
+      }
   }

@@ -9,8 +9,8 @@ const NavBar = () => {
     const renderList = () => {
         if(state){
             return[
-                <li key="1" className="hide-on-small-only"><Link to="/profile">Profile</Link></li>,
-                <li  key="5">
+                <li key="1" className="mobile"><Link to="/profile">Profile</Link></li>,
+                <li  key="5" className="mobile">
                     <button className="btn"
                     onClick={()=>{
                     localStorage.clear()
@@ -24,8 +24,8 @@ const NavBar = () => {
             ]
         }else{
             return[
-                <li key="2" className="hide-on-small-only"><Link to="/signin">Sign In</Link></li>,
-                <li key="3" className="hide-on-small-only"><Link to="/signup">Sign Up</Link></li> 
+                <li key="2" className="mobile"><Link to="/signin">Sign In</Link></li>,
+                <li key="3" className="mobile"><Link to="/signup">Sign Up</Link></li> 
             ]
         }
     }  
