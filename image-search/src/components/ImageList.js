@@ -3,7 +3,8 @@ import './ImageList.css';
 import LazyLoad from 'react-lazyload';
 import {useHistory} from 'react-router-dom'
 import {UserContext} from './App'
-import M from 'materialize-css'
+import M from 'materialize-css';
+import Spinner from './Loader';
 
 const LoadingImages = () => (
     <div className="post loading">
@@ -43,7 +44,7 @@ const ImageList = ({images, loading}) => {
     },[url])
 
     if(loading){
-        return <h1>Loading</h1>
+        return <Spinner />
     }
 
     const colorChange = (url) => {

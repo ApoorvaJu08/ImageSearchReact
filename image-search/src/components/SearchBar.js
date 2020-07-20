@@ -79,7 +79,7 @@ function SearchBar({updateQuery}) {
                 <button className="btn waves-effect waves-light btn-large search-btn" onClick={() => fetchPhotos(`${value}`)}>Search</button>
             </div>
             <ImageList images = {images} loading = {loading} />
-            <Pagination
+            { totalPages > 0 ? <Pagination
                 prevPageText='prev'
                 nextPageText='next'
                 firstPageText='first'
@@ -88,7 +88,8 @@ function SearchBar({updateQuery}) {
                 itemsCountPerPage={imagesPerPage}
                 totalItemsCount={totalPages}
                 onChange={(page) => handlePageChange(page)}
-                />
+                /> : ""  }
+            
             {/* <Pagination items={images} onChangePage={(page) => onChangePage(page)} /> */}
             {/* <Pagination totalRecords={totalPages} imagesPerPage={imagesPerPage} pageNeighbours={1} onPageChanged={() => onPageChanged()} /> */}
             {/* <Pagination imagesPerPage = {imagesPerPage} totalPages = {totalPages} pageNeighbours={1} paginate={paginate} /> */}
