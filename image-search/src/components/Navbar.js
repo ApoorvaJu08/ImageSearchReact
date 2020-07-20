@@ -1,23 +1,45 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './Navbar.css'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import {UserContext} from './App'
 
-class NavBar extends React.Component {
+const NavBar = () => {
+    const {state, dispatch} = useContext(UserContext)
+    const history = useHistory()
+    const renderList = () => {
+        if(state){
+            return[
+                <li key="1" className="hide-on-small-only"><Link to="/profile">Profile</Link></li>,
+                <li  key="5">
+                    <button className="btn"
+                    onClick={()=>{
+                    localStorage.clear()
+                    dispatch({type:"CLEAR"})
+                    history.push('/signin')
+                    }}
+                    >
+                        Logout
+                    </button>
+                </li>
+            ]
+        }else{
+            return[
+                <li key="2" className="hide-on-small-only"><Link to="/signin">Sign In</Link></li>,
+                <li key="3" className="hide-on-small-only"><Link to="/signup">Sign Up</Link></li> 
+            ]
+        }
+    }  
 
-    render() {
-        return (
-            <nav>
-                <div className="nav-wrapper">
-                    <Link to="/" className="brand-logo">Collosal Images</Link>
-                    <ul id="nav-mobile" className="right">
-                        <li className="hide-on-small-only"><Link to="/signin">Sign In</Link></li>
-                        <li className="hide-on-small-only"><Link to="/signup">Sign Up</Link></li>
-                        <li className="hide-on-small-only"><Link to="/profile">Profile</Link></li>
-                    </ul>
-                </div>
-            </nav>
-        )
-    }
+    return (
+        <nav>
+            <div className="nav-wrapper">
+                <Link to="/" className="brand-logo">Collosal Images</Link>
+                <ul id="nav-mobile" className="right">
+                    {renderList()}
+                </ul>
+            </div>
+        </nav>
+    )
 }
 
 export default NavBar

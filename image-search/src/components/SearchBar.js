@@ -1,65 +1,97 @@
 import React, {useState} from 'react';
-import LazyLoad from 'react-lazyload';
 import './SearchBar.css';
+import axios from 'axios';
+import ImageList from './ImageList';
+// import Pagination from './Pagination';
+import Pagination from "react-js-pagination";
+// require("bootstrap/less/bootstrap.less");
 
-const Loading = () => (
-    <div className="post loading">
-        <h5>Loading...</h5>
-    </div>
-)
-
-function SearchBar() {
+function SearchBar({updateQuery}) {
+    const [images, setImages] = useState([])
+    const [currentImages, setCurrentImages] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [currentPage, setCurrentPage] = useState(null)
+    const [query, setQuery] = useState("")
     const [value, setValue] = useState("")
-    const [results, setResults] = useState([])
-    const [item, setItem] = useState([])
+    const [imagesPerPage, setimagesPerPage] = useState(16)
+    const [totalPages, setTotalPages] = useState(0)
+    const [pageOfItems, setPageOfItems] = useState([])
 
-    const fetchImages = () => {
-        fetch(`https://api.unsplash.com/search/photos?client_id=lXV5rBTZvtCk-dHQnQdFXSbwocD2_re_nucqQdOwWok&query=${value}&orientation=squarish`)
-        .then(res => res.json())
-        .then(data => {
-            setResults(data.results)
-            setItem(data.results.slice(0, 5))
-            const len = results.length
+    const fetchPhotos = (inputValue, page) => {
+        const baseUrl = "https://api.unsplash.com/search/photos";
+        const options = {
+            headers: {
+                Authorization: `Client-ID lXV5rBTZvtCk-dHQnQdFXSbwocD2_re_nucqQdOwWok`
+            },
+            params: {
+                query: inputValue,
+                page, 
+                per_page: imagesPerPage
+            }
+        };
+
+        axios
+        .get(baseUrl, options)
+        .then(response => {
+            setQuery(inputValue)
+            setImages(response.data.results)
+            setLoading(false)
+            setTotalPages(response.headers["x-total"])
         })
+        .catch((err) => {
+            console.log(err);
+        });
+        updateQuery(inputValue);
+    };
+
+    const paginate = (pageNumber) =>{
+        setCurrentPage(pageNumber);
+        fetchPhotos(`${value}`, pageNumber)
     }
 
-    const next = () => {
-        setItem(results.slice(5, 11))
+    const onPageChanged = data => {
+        const { currentPage, totalPages, imagesPerPage } = data;
+    
+        const offset = (currentPage - 1) * imagesPerPage;
+        setCurrentImages(images.slice(offset, offset + imagesPerPage));
+        // const currentImages = allCountries.slice(offset, offset + imagesPerPage);
+        
+        // this.setState({ currentPage, currentCountries, totalPages });
+    }
+    
+    const onChangePage = (pageOfItems) => {
+        setPageOfItems(pageOfItems);
+        // fetchPhotos(`${value}`, pageOfItems)
     }
 
-    const prev = () => {
-        setItem(results.slice(0, 5))
+    const handlePageChange = (pageNumber) => {
+        // console.log(`active page is ${pageNumber}`);
+        setCurrentPage(pageNumber)
+        fetchPhotos(`${value}`, pageNumber)   
     }
 
     return(
-        <div className="Search container">
+        <div className="Search">
             <div className="search-box input-field">
                 <input className="search-input" type="text" value={value} 
                 onChange={(e) => setValue(e.target.value)} placeholder="Search..."
                 style={{width: "70%", color: "#4e54c8"}}/>
-                <button className="btn waves-effect waves-light btn-large search-btn" onClick={() => fetchImages()}>Search</button>
+                <button className="btn waves-effect waves-light btn-large search-btn" onClick={() => fetchPhotos(`${value}`)}>Search</button>
             </div>
-            <div className="gallery">
-                {/* {    */}
-                    <LazyLoad placeholder={<Loading />}>
-                        {
-                            item.map((item1) => {
-                                return(
-                                    <img className="item animate__animated animate__pulse" key={item1.id} src={item1.urls.regular} />
-                                )  
-                            })
-                        }
-                    </LazyLoad>
-                {/* } */}
-            </div>
-            <div className="slide-btns-div">
-                <button className="btn waves-effect waves-light slide-btn" onClick={prev}>
-                    <i className="material-icons">first_page</i>
-                </button>
-                <button className="btn waves-effect waves-light" onClick={next}>
-                    <i className="material-icons">last_page</i>
-                </button>
-            </div>
+            <ImageList images = {images} loading = {loading} />
+            <Pagination
+                prevPageText='prev'
+                nextPageText='next'
+                firstPageText='first'
+                lastPageText='last'
+                activePage={currentPage}
+                itemsCountPerPage={imagesPerPage}
+                totalItemsCount={totalPages}
+                onChange={(page) => handlePageChange(page)}
+                />
+            {/* <Pagination items={images} onChangePage={(page) => onChangePage(page)} /> */}
+            {/* <Pagination totalRecords={totalPages} imagesPerPage={imagesPerPage} pageNeighbours={1} onPageChanged={() => onPageChanged()} /> */}
+            {/* <Pagination imagesPerPage = {imagesPerPage} totalPages = {totalPages} pageNeighbours={1} paginate={paginate} /> */}
         </div>
     )
 }

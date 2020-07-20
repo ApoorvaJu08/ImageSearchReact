@@ -43,11 +43,5 @@
 
 .form-heading {
     color: #4e54c8;
-    /* font-weight: bold; */
     text-transform: uppercase;
-}
-
-.not-complete {
-    text-align: center;
-    color: #ffffff;
 }
