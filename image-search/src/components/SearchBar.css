@@ -22,22 +22,11 @@
     grid-auto-rows: 10px;
 }
 
-/* .gallery {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-} */
-
 .image-divs {
     display: inline;
     position: relative;
 }
 
-/* .itemImage {
-    width: 250px;
-    margin: 2px;
-    height: 200px;
-} */
 
 .itemImage {
     width: 24%;
@@ -53,11 +42,6 @@
     border-radius: 6px;
     position: absolute;
     right: 8%;
-
-    /* font-size: 28px !important;
-    color: #4e54c8; */
-
-    /* padding: 0 7px; */
 }
 
 .like-icon {

@@ -4,9 +4,7 @@ import {UserContext} from './App'
 
 const Profile = () => {
     const [images, setImages] = useState([])
-    const {state, dispatch} = useContext(UserContext)
-    // const history = useHistory() 
-    // console.log(state["name"])
+    const {state} = useContext(UserContext)
     useEffect(()=>{
         fetch('/myimage',{
             headers:{
